@@ -1,6 +1,6 @@
 # importing system module for reading files
 import sys
-
+import time
 
 # in what follows, a *formula* is a collection of clauses,
 # a clause is a collection of literals,
@@ -191,23 +191,27 @@ def dpll_solve(cnf, n_vars, n_clauses):
     ######################################################################
 
 
-# get path to cnf file from the command line
-path = sys.argv[1]
+def main():
+    # get path to cnf file from the command line
+    path = sys.argv[1]
 
-# get algorithm from the command line
-algorithm = sys.argv[2]
+    # parse the file
+    cnf, num_vars, num_clauses = parse_dimacs_path(path)
 
-# make sure that algorithm is either "naive" or "dpll"
-assert (algorithm in ["naive", "dpll"])
-
-# parse the file
-cnf, num_vars, num_clauses = parse_dimacs_path(path)
-
-# check satisfiability based on the chosen algorithm
-# and print the result
-if algorithm == "naive":
-    naive_solve(cnf, num_vars, num_clauses)
-    # print("sat" if naive_solve(cnf, num_vars, num_clauses) else "unsat")
-else:
+    # dpll algorithm
+    start = time.time()
     dpll_solve(cnf, num_vars, num_clauses)
-    # print("sat" if dpll_solve(cnf, num_vars, num_clauses) else "unsat")
+    end = time.time()
+    print("DPLL Time:", end - start)
+
+    # naive algorithm
+    start = time.time()
+    naive_solve(cnf, num_vars, num_clauses)
+    end = time.time()
+    print("Naive Time:", end - start)
+
+
+
+
+if __name__ == "__main__":
+    main()
