@@ -25,3 +25,6 @@ python sat_solver.py /path/to/cnf_file.cnf
 
 ### Example CNF File
 An example CNF file is provided in the repository to help you get started. The format of the CNF file should be compatible with standard DIMACS CNF format.
+
+### Running example
+![sat](https://github.com/tomerp1812/SAT-Solver/assets/110912180/754abe51-8513-4d32-9b8e-90c88611eeaf)
