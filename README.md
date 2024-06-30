@@ -16,7 +16,7 @@ To build and run the code, follow these steps:
 Clone the repository:
 ```bash
 git clone https://github.com/tomerp1812/SAT-Solver.git
-cd sat-solver
+cd SAT-Solver
 ```
 Run the SAT-solver:
 ```bash
